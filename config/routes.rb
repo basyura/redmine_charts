@@ -2,8 +2,8 @@ require 'redmine_charts/utils'
 
 # Configuring routing for plugin's controllers.
 
-ActionController::Routing::Routes.draw do |map|
+RedmineApp::Application.routes.draw do
   RedmineCharts::Utils.controllers_for_routing do |name, controller|
-    map.connect "projects/:project_id/charts/#{name}/:action", :controller => controller 
+    match "projects/:project_id/charts/#{name}/:action" => controller 
   end
 end

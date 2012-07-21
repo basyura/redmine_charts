@@ -1,11 +1,8 @@
 require 'redmine'
 
-RAILS_DEFAULT_LOGGER.info 'Starting Charts Plugin for RedMine'
-
-require 'dispatcher'
 require 'redmine_charts'
 
-Dispatcher.to_prepare :redmine_charts do
+Rails.configuration.to_prepare do
   require_dependency 'issue'
   require_dependency 'time_entry'
 
